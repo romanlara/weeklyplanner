@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/clock.css">
+        <title>Weekly Planner</title>
+        <!-- Created on April 8, 2021 by lara.ems.roman
+             Finished on April 16, 2021 -->
+    </head>
+    <body>
+        <!-- ######## Decoration ######## -->
+        <div class="bubble bubble-one glassmorphism-effect"></div>
+        <div class="bubble bubble-two glassmorphism-effect"></div>
+        <div class="bubble bubble-three glassmorphism-effect"></div>
+        <div class="bubble bubble-four glassmorphism-effect"></div>
+
+        <!-- ######## App ######## -->
+        <div class="container glassmorphism-effect padding-box">
+            <!-- ######## Left Section ######## -->
+            <!-- Goals -->
+            <section class="glassmorphism-effect padding-box">
+                <!-- Clock -->
+                <div class="container-clock">
+                    <div class="box">
+                        <div class="clock">
+                            <div class="hour">
+                                <div class="hr" id="hr"></div>
+                            </div>
+                            <div class="min">
+                                <div class="mn" id="mn"></div>
+                            </div>
+                            <div class="sec">
+                                <div class="sc" id="sc"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Title -->
+                <div class="title">
+                    <p>Goals</p>
+                    <p>What I want to achieve</p>
+                </div>
+                <!-- Goal bar -->
+                <div id="goals-bar">
+                    <!-- #### Goal Template:
+                    <div class="goals" idstamp="1234567890">
+                        <div class="round-box glassmorphism-effect">
+                            <img src="https://img.icons8.com/nolan/64/love-book.png" alt="book">
+                        </div>
+                        <p>Read more</p>
+                        <div class="round-box">
+                            <img src="https://img.icons8.com/nolan/64/delete-sign.png" alt="delete"/>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <!-- Add Goal button -->
+                <button id="open-goalsDialog-btn" type="button" class="abolute-button round-box glassmorphism-effect">
+                    <img src="https://img.icons8.com/nolan/64/plus-math.png" alt="add goal">
+                </button>
+            </section>
+
+            <!-- ######## Right Section ######## -->
+            <!-- Planning -->
+            <section class="main-content glassmorphism-effect padding-box">
+                <!-- Title -->
+                <div class="title title-two">
+                    <p>Weekly Planner</p>
+                    <p>Type a message</p>
+                    <div id="open-editMsgDialog-btn" type="button" class="round-box glassmorphism-effect">
+                        <img src="https://img.icons8.com/nolan/64/edit--v1.png" alt="edit">
+                    </div>
+                </div>
+                <!-- Week container -->
+                <div>
+                    <!-- Day -->
+                    <div id="sunday" class="column-day">
+                        <p class="glassmorphism-effect">Sunday</p>
+                        <!-- #### Card Template:
+                        <div class="card margin-bottom-link-card" idstamp="1234567890" idsort="00:00">
+                            <div class="glassmorphism-effect">
+                                <p>Title</p>
+                            </div>
+                            <div class="glassmorphism-effect">
+                                <p>00:00pm</p>
+                                <p>Description</p>
+                                <a href="#" target="_blank">
+                                    <img src="https://img.icons8.com/nolan/64/external-link.png" alt="external link">
+                                </a>
+                            </div>
+                            <div class="round-box">
+                                <img src="https://img.icons8.com/nolan/64/delete-sign.png" alt="delete"/>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    <!-- Day -->
+                    <div id="monday" class="column-day">
+                        <p class="glassmorphism-effect">Monday</p>
+                    </div>
+                    <!-- Day -->
+                    <div id="tuesday" class="column-day">
+                        <p class="glassmorphism-effect">Tuesday</p>
+                    </div class="column-day">
+                    <!-- Day -->
+                    <div id="wednesday" class="column-day">
+                        <p class="glassmorphism-effect">Wednesday</p>
+                    </div class="column-day">
+                    <!-- Day -->
+                    <div id="thursday" class="column-day">
+                        <p class="glassmorphism-effect">Thursday</p>
+                    </div>
+                    <!-- Day -->
+                    <div id="friday" class="column-day">
+                        <p class="glassmorphism-effect">Friday</p>
+                    </div>
+                    <!-- Day -->
+                    <div id="saturday" class="column-day">
+                        <p class="glassmorphism-effect">Saturday</p>
+                    </div>
+                </div>
+                <!-- Add activity button -->
+                <button id="open-activityDialog-btn" type="button" class="abolute-button round-box glassmorphism-effect">
+                    <img src="https://img.icons8.com/nolan/64/plus-math.png" alt="add activity">
+                </button>
+            </section>
+
+            <p class="creative">With ♥ by <a href="https://laraemsroman.wixsite.com/portfolio" target="_blank" style="text-decoration: none;">lara.ems.roman</a>, design inspired on <a href="https://platzi.com/blog/css-grid-glassmorphism/" target="_blank" style="text-decoration: none;">@teffcode & @plazi</a></p>
+        </div>
+
+        <!-- Clear all button -->
+        <button id="open-clearDialog-btn" type="button" class="abolute-button round-box glassmorphism-effect">
+            <img src="https://img.icons8.com/nolan/64/waste.png" alt="clear all">
+        </button>
+
+        <!-- ######## Dialogs ######## -->
+        <!-- Add Goal Dialog-->
+        <dialog id="goalDialog" class="dialog-box glassmorphism-effect padding-box">
+            <div class="title">
+                <p>Add a Goal</p>
+                <p>Choose an icon and type your goal.</p>
+            </div>
+            <form name="goal-form" method="dialog">
+                <!-- Goal field -->
+                <input id="goal_input_txt" type="text" placeholder="Example: Eat healthy, Lift weights, Learn spanish, Play a video game" class="input-box glassmorphism-effect padding-field-box">
+                <!-- Icons -->
+                <div id="icons_pickup">
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="square-ico" value="https://img.icons8.com/nolan/64/square.png" checked>
+                        <img src="https://img.icons8.com/nolan/64/square.png" alt="square">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="circle-ico" value="https://img.icons8.com/nolan/64/circled.png">
+                        <img src="https://img.icons8.com/nolan/64/circled.png" alt="circle">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="four-squares-ico" value="https://img.icons8.com/nolan/64/four-squares.png">
+                        <img src="https://img.icons8.com/nolan/64/four-squares.png" alt="four-squares">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="love-book-ico" value="https://img.icons8.com/nolan/64/love-book.png">
+                        <img src="https://img.icons8.com/nolan/64/love-book.png" alt="book">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="study-ico" value="https://img.icons8.com/nolan/64/study.png">
+                        <img src="https://img.icons8.com/nolan/64/study.png" alt="study">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="edit-property-ico" value="https://img.icons8.com/nolan/64/edit-property.png">
+                        <img src="https://img.icons8.com/nolan/64/edit-property.png" alt="type-data">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="map-marker-ico" value="https://img.icons8.com/nolan/64/map-marker.png">
+                        <img src="https://img.icons8.com/nolan/64/map-marker.png" alt="map">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="globe-ico" value="https://img.icons8.com/nolan/64/globe.png">
+                        <img src="https://img.icons8.com/nolan/64/globe.png" alt="globe">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="google-docs-ico" value="https://img.icons8.com/nolan/64/google-docs.png">
+                        <img src="https://img.icons8.com/nolan/64/google-docs.png" alt="doc">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="source-code-ico" value="https://img.icons8.com/nolan/64/source-code.png">
+                        <img src="https://img.icons8.com/nolan/64/source-code.png" alt="code">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="time-ico" value="https://img.icons8.com/nolan/64/time.png">
+                        <img src="https://img.icons8.com/nolan/64/time.png" alt="clock">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="musical-ico" value="https://img.icons8.com/nolan/64/musical.png">
+                        <img src="https://img.icons8.com/nolan/64/musical.png" alt="music">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="phone-ico" value="https://img.icons8.com/nolan/64/phone.png">
+                        <img src="https://img.icons8.com/nolan/64/phone.png" alt="phone">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="email-ico" value="https://img.icons8.com/nolan/64/email.png">
+                        <img src="https://img.icons8.com/nolan/64/email.png" alt="email">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="user-ico" value="https://img.icons8.com/nolan/64/user.png">
+                        <img src="https://img.icons8.com/nolan/64/user.png" alt="user">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="camera-ico" value="https://img.icons8.com/nolan/64/camera.png">
+                        <img src="https://img.icons8.com/nolan/64/camera.png" alt="photographer">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="drawing-ico" value="https://img.icons8.com/nolan/64/drawing.png">
+                        <img src="https://img.icons8.com/nolan/64/drawing.png" alt="drawing">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="box-ico" value="https://img.icons8.com/nolan/64/box.png">
+                        <img src="https://img.icons8.com/nolan/64/box.png" alt="box">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="time-management-ico" value="https://img.icons8.com/nolan/64/time-management.png">
+                        <img src="https://img.icons8.com/nolan/64/time-management.png" alt="time-management">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="vegetarian-food-ico" value="https://img.icons8.com/nolan/64/vegetarian-food.png">
+                        <img src="https://img.icons8.com/nolan/64/vegetarian-food.png" alt="natural-food">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="cookie-ico" value="https://img.icons8.com/nolan/64/cookie.png">
+                        <img src="https://img.icons8.com/nolan/64/cookie.png" alt="cookie">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="melting-ice-cream-ico" value="https://img.icons8.com/nolan/64/melting-ice-cream.png">
+                        <img src="https://img.icons8.com/nolan/64/melting-ice-cream.png" alt="melting-ice-cream">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="beach-ico" value="https://img.icons8.com/nolan/64/beach.png">
+                        <img src="https://img.icons8.com/nolan/64/beach.png" alt="beach">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="mountain-ico" value="https://img.icons8.com/nolan/64/mountain.png">
+                        <img src="https://img.icons8.com/nolan/64/mountain.png" alt="mountain">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="school-ico" value="https://img.icons8.com/nolan/64/school.png">
+                        <img src="https://img.icons8.com/nolan/64/school.png" alt="school">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="church-ico" value="https://img.icons8.com/nolan/64/church.png">
+                        <img src="https://img.icons8.com/nolan/64/church.png" alt="church">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="elections-ico" value="https://img.icons8.com/nolan/64/elections.png">
+                        <img src="https://img.icons8.com/nolan/64/elections.png" alt="elections">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="airport-ico" value="https://img.icons8.com/nolan/64/airport.png">
+                        <img src="https://img.icons8.com/nolan/64/airport.png" alt="airport">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="party-baloon-ico" value="https://img.icons8.com/nolan/64/party-baloon.png">
+                        <img src="https://img.icons8.com/nolan/64/party-baloon.png" alt="party-baloon">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="bar-ico" value="https://img.icons8.com/nolan/64/bar.png">
+                        <img src="https://img.icons8.com/nolan/64/bar.png" alt="bar">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="swimming-ico" value="https://img.icons8.com/nolan/64/swimming.png">
+                        <img src="https://img.icons8.com/nolan/64/swimming.png" alt="swimming">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="bed-ico" value="https://img.icons8.com/nolan/64/bed.png">
+                        <img src="https://img.icons8.com/nolan/64/bed.png" alt="bed">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="ambulance-ico" value="https://img.icons8.com/nolan/64/ambulance.png">
+                        <img src="https://img.icons8.com/nolan/64/ambulance.png" alt="ambulance">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="tooth-ico" value="https://img.icons8.com/nolan/64/tooth.png">
+                        <img src="https://img.icons8.com/nolan/64/tooth.png" alt="tooth">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="dumbbell-ico" value="https://img.icons8.com/nolan/64/dumbbell.png">
+                        <img src="https://img.icons8.com/nolan/64/dumbbell.png" alt="exercise">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="money-ico" value="https://img.icons8.com/nolan/64/money.png">
+                        <img src="https://img.icons8.com/nolan/64/money.png" alt="money">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="business-ico" value="https://img.icons8.com/nolan/64/business.png">
+                        <img src="https://img.icons8.com/nolan/64/business.png" alt="business">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="small-business-ico" value="https://img.icons8.com/nolan/64/small-business.png">
+                        <img src="https://img.icons8.com/nolan/64/small-business.png" alt="small-business">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="heart-ico" value="https://img.icons8.com/nolan/64/heart.png">
+                        <img src="https://img.icons8.com/nolan/64/heart.png" alt="heart">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="rules-ico" value="https://img.icons8.com/nolan/64/rules.png">
+                        <img src="https://img.icons8.com/nolan/64/rules.png" alt="rules">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="computer-ico" value="https://img.icons8.com/nolan/64/computer.png">
+                        <img src="https://img.icons8.com/nolan/64/computer.png" alt="computer">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="donation-ico" value="https://img.icons8.com/nolan/64/donation.png">
+                        <img src="https://img.icons8.com/nolan/64/donation.png" alt="donation">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="car-ico" value="https://img.icons8.com/nolan/64/car.png">
+                        <img src="https://img.icons8.com/nolan/64/car.png" alt="car">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="game-controller-ico" value="https://img.icons8.com/nolan/64/game-controller.png">
+                        <img src="https://img.icons8.com/nolan/64/game-controller.png" alt="gamepad">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="knight-ico" value="https://img.icons8.com/nolan/64/knight.png">
+                        <img src="https://img.icons8.com/nolan/64/knight.png" alt="chess">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="dice-ico" value="https://img.icons8.com/nolan/64/dice.png">
+                        <img src="https://img.icons8.com/nolan/64/dice.png" alt="dice">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="retro-tv-ico" value="https://img.icons8.com/nolan/64/retro-tv.png">
+                        <img src="https://img.icons8.com/nolan/64/retro-tv.png" alt="tv">
+                    </label>
+                    <label class="round-box glassmorphism-effect">
+                        <input type="radio" name="icons" id="movie-ico" value="https://img.icons8.com/nolan/64/movie.png">
+                        <img src="https://img.icons8.com/nolan/64/movie.png" alt="movie">
+                    </label>
+                </div><!-- END icons_pickup-->
+                <!-- Confirm and Cancel Buttons -->
+                <div class="confirm-buttons-area">
+                    <menu>
+                        <button id="confirm_btn_AddGoalDialog" type="button" value="default"  class="glassmorphism-effect padding-field-box">Add</button>
+                        <button id="cancel_btn_AddGoalDialog" type="button" value="cancel"  class="glassmorphism-effect padding-field-box">Cancel</button>
+                    </menu>
+                </div>
+            </form>
+        </dialog><!-- END goalDialog -->
+
+        <!-- Add Activity Dialog-->
+        <dialog id="activityDialog" class="dialog-box glassmorphism-effect padding-box">
+            <div class="title">
+                <p>Add an Activity</p>
+                <p>Specify the information for your week activity.</p>
+            </div>
+            <form name="activity-form" method="dialog">
+                <label for="title_input_txt_ActivityDialog">Title:</label>
+                <input id="title_input_txt_ActivityDialog" type="text" placeholder="Example: Spanish, Yoga, Appointment" class="input-box glassmorphism-effect padding-field-box">
+                
+                <label for="briefDescription_input_txt_ActivityDialog">Brief description:</label>
+                <input id="briefDescription_input_txt_ActivityDialog" type="text" placeholder="Example: Verbs, Legs, Dentistry" class="input-box glassmorphism-effect padding-field-box">
+                
+                <label for="startTime_select_ActivityDialog">Start time:</label>
+                <select id="startTime_select_ActivityDialog" class="input-box glassmorphism-effect padding-field-box">
+                    <option value="00:00">00:00</option>
+                    <option value="00:30">00:30</option>
+                    <option value="01:00">01:00</option>
+                    <option value="01:30">01:30</option>
+                    <option value="02:00">02:00</option>
+                    <option value="02:30">02:30</option>
+                    <option value="03:00">03:00</option>
+                    <option value="03:30">03:30</option>
+                    <option value="04:00">04:00</option>
+                    <option value="04:30">04:30</option>
+                    <option value="05:00">05:00</option>
+                    <option value="05:30">05:30</option>
+                    <option value="06:00">06:00</option>
+                    <option value="06:30">06:30</option>
+                    <option value="07:00">07:00</option>
+                    <option value="07:30">07:30</option>
+                    <option value="08:00">08:00</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                    <option value="22:00">22:00</option>
+                    <option value="22:30">22:30</option>
+                    <option value="23:00">23:00</option>
+                    <option value="23:30">23:30</option>
+                </select>
+
+                <label for="day_input_select_Activitydialog">Day:</label>
+                <select id="day_input_select_Activitydialog" class="input-box glassmorphism-effect padding-field-box">
+                    <option value="sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                </select>
+                
+                <label for="link_input_txt_ActivityDialog">Link <small>(optional)</small>:</label>
+                <input id="link_input_txt_ActivityDialog" type="text" placeholder="Type a link to go if the activity is online or informative" class="input-box glassmorphism-effect padding-field-box">
+                <!-- Confirm and Cancel Buttons -->
+                <div class="confirm-buttons-area">
+                    <menu>
+                        <button id="confirm_btn_AddActivityDialog" type="button" value="default"  class="glassmorphism-effect padding-field-box">Add</button>
+                        <button id="cancel_btn_AddActivityDialog" type="button" value="cancel"  class="glassmorphism-effect padding-field-box">Cancel</button>
+                    </menu>
+                </div>
+            </form>
+        </dialog><!-- END activityDialog-->
+
+        <!-- Edit Week Message Dialog -->
+        <dialog id="editMsgDialog" class="dialog-box glassmorphism-effect padding-box">
+            <div class="title">
+                <p>Edit Weekly Message</p>
+                <p>Type what week is currently or anything you wish.</p>
+            </div>
+            <form name="editmsg-form" method="dialog">
+                <input id="editMsg_input_txt" type="text" placeholder="Example: Week from 15 to 19, March" class="input-box glassmorphism-effect padding-field-box">
+                <!-- Confirm and Cancel Buttons -->
+                <div class="confirm-buttons-area">
+                    <menu>
+                        <button id="confirm_btn_EditMsgDialog" type="button" value="default"  class="glassmorphism-effect padding-field-box">Confirm</button>
+                    </menu>
+                </div>
+            </form>
+        </dialog><!-- END editMsgDialog -->
+
+        <!-- Clear Dialog -->
+        <dialog id="clearDialog" class="dialog-box glassmorphism-effect padding-box">
+            <div class="title">
+                <p>Clear All</p>
+                <p>You can delete the goals or the activities or both.</p>
+            </div>
+            <form name="clear-form" method="dialog">
+                <button id="clearOnlyGoals_btn_ClearDialog" type="button" value="default" class="input-box glassmorphism-effect padding-field-box">Delete only Goals</button>
+                <button id="clearOnlyActivities_btn_ClearDialog" type="button" value="default" class="input-box glassmorphism-effect padding-field-box">Delete only Weekly Activities</button>
+                <button id="clearAll_btn_ClearDialog" type="button" value="default" class="input-box glassmorphism-effect padding-field-box">Delete All</button>
+                <!-- Confirm and Cancel Buttons -->
+                <div class="confirm-buttons-area">
+                    <menu>
+                        <button id="cancel_btn_ClearDialog" type="button" value="cancel"  class="glassmorphism-effect padding-field-box">Cancel</button>
+                    </menu>
+                </div>
+            </form>
+        </dialog><!--END clearDialog-->
+
+        <!-- Scripts -->
+        <script src="js/app.js"></script>
+        <script src="js/clock.js"></script>
+    </body>
+</html>

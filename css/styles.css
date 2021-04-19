@@ -1,0 +1,506 @@
+/* Created on April 8, 2021 by lara.ems.roman
+   Finished on April 16, 2021 */
+   
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap');
+
+body {
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    font-family: 'Nunito', sans-serif;
+    display: grid;
+    height: 100vh;
+    margin: 0;
+    place-items: center;
+}
+
+.glassmorphism-effect {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 20px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    height: 90%;
+    width: 85%;
+}
+
+.padding-box {
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.round-box {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+}
+
+.round-box img {
+    width: 30px;
+}
+
+.padding-field-box {
+    box-sizing: border-box;
+    padding: 14px;
+}
+
+.abolute-button {
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 3;
+}
+
+.creative {
+    position: absolute;
+    bottom: -18px;
+    right: 28px;
+}
+
+.container > section:first-child > div:nth-child(3) {
+    margin-bottom: 50px;
+    overflow-y: auto;
+    height: 480px;
+    padding: 24px 0 0 24px;
+    position: relative;
+}
+
+.main-content > div:nth-child(2) {
+    margin-bottom: 50px;
+    overflow-y: auto;
+    height: 745px;
+    padding: 0 24px;
+}
+
+.container > section:first-child > div:nth-child(3)::-webkit-scrollbar,
+.main-content > div:nth-child(2)::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container > section:first-child > div:nth-child(3)::-webkit-scrollbar-thumb,
+.main-content > div:nth-child(2)::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, .5);
+    border-radius: 12px;
+}
+
+/* -------------------------------------
+   Section one - Left side */
+
+.title p:first-child {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.title p:last-child {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* To the Edit button */ 
+
+.title-two {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+}
+
+.title-two p:nth-child(2) {
+    grid-column: 1 / 2;
+}
+
+.title-two div {
+    grid-column: 2 / 2;
+}
+
+/* Goals */
+
+.goals {
+    align-items: center;
+    display: flex;
+}
+
+.goals > div:first-child {
+    margin-right: 10px;
+}
+
+/* Delete Goal button */
+
+.goals > div:last-child {
+    position: absolute;
+    right: 0;
+}
+
+.goals > div:last-child img {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* -------------------------------------
+   Section two - Right side */
+
+.main-content > div:nth-child(2) {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.column-day > p:first-child {
+    text-align: center;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 4;
+}
+
+/* Cards */
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    height: 100px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.card > div:first-child {
+    align-items: center;
+    border-radius: 16px;
+    display: flex;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    z-index: 1;
+}
+
+.card > div:first-child p {
+    /*color: white;*/
+    margin: 0;
+    padding-right: 7px;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+}
+
+.card > div:nth-child(2) {
+    border-radius: 16px;
+    display: grid;
+    grid-column: 2 / 5;
+    grid-row: 1 / 2;
+    justify-content: center;
+    z-index: 2;
+}
+
+.card > div:nth-child(2) p:first-child {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 18px -8px;
+}
+
+.card > div:nth-child(2) > p:nth-child(2) {
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.margin-bottom-link-card {
+    margin-bottom: 60px;
+}
+
+/* External link button */
+
+.card > div:nth-child(2) a {
+    text-align: center;
+    display: inline-block;
+}
+
+.card > div:nth-child(2) a img {
+    width: 20px;
+}
+
+/* Delete card button */
+
+.card > div:last-child {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    z-index: 3;
+}
+
+.card > div:last-child img {
+    width: 15px;
+    cursor: pointer;
+}
+
+/* -------------------------------------
+   Bubbles Decorations */
+
+.bubble {
+    border-radius: 50%;
+    position: absolute;
+}
+
+.bubble-one {
+    width: 80px;
+    height: 80px;
+    left: 300px;
+    top: 10px;
+}
+
+.bubble-two {
+    width: 230px;
+    height: 230px;
+    right: 200px;
+    top: -50px;
+}
+
+.bubble-three {
+    width: 50px;
+    height: 50px;
+    right: 450px;
+    top: -20px;
+}
+
+.bubble-four {
+    width: 100px;
+    height: 100px;
+    left: -30px;
+    bottom: 40px;
+}
+
+/* -------------------------------------
+   Dialogs */
+
+.dialog-box {
+    width: 500px;
+    height: 800px;
+    top: 50%;
+    bottom: 50%;
+}
+
+.input-box {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+dialog::backdrop {
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* Adjust the form element and the Confirm & Cancel buttons common */
+#activityDialog form, 
+#editMsgDialog form, 
+#clearDialog form {
+    position: relative;
+}
+
+#activityDialog .confirm-buttons-area, 
+#editMsgDialog .confirm-buttons-area, 
+#clearDialog .confirm-buttons-area {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#activityDialog .confirm-buttons-area > menu, 
+#editMsgDialog .confirm-buttons-area > menu, 
+#clearDialog .confirm-buttons-area > menu {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust only for #goalDialog the form element and the Confirm & Cancel buttons */
+#goalDialog form {
+    display: grid;
+    grid-template-rows: 4fr;
+}
+
+#goalDialog .confirm-buttons-area {
+    margin-top: 30px;
+    display: grid;
+}
+
+#goalDialog .confirm-buttons-area > menu {
+    margin: 0;
+    padding: 0;
+    justify-self: end;
+}
+
+#goal_input_txt {
+    grid-row-end: 1;
+}
+
+#icons_pickup {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    place-items: center;
+    margin-bottom: 20px;
+}
+
+/* Hide Radio */
+#icons_pickup input[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Image style */
+#icons_pickup input[type=radio] + img {
+    cursor: pointer;
+}
+
+/* Checked style */
+#icons_pickup input[type=radio]:checked + img {
+    /*outline: 2px solid #f00;*/
+    border: 3px solid rgba(156, 22, 218, 0.58);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Size Dialog */
+#editMsgDialog {
+    height: 350px;
+}
+
+#activityDialog {
+    height: 700px;
+}
+
+#clearDialog {
+    height: 450px;
+}
+
+/* styles for #open-editMsgDialog-btn */
+#open-editMsgDialog-btn {
+    cursor: pointer;
+}
+
+/* -------------------------------------
+   Responsive */
+
+/* Height */
+
+@media (max-height: 1010px) {
+    .container > section:first-child > div:nth-child(3) {
+        height: 330px;
+    }
+
+    .main-content > div:nth-child(2) {
+        height: 610px;;
+    }
+}
+
+@media (max-height: 890px) {
+    .container > section:first-child > div:nth-child(3) {
+        height: 270px;
+    }
+
+    .main-content > div:nth-child(2) {
+        height: 540px;;
+    }
+}
+
+@media (max-height: 830px) {
+    .container > section:first-child > div:nth-child(3) {
+        height: 200px;
+    }
+
+    .main-content > div:nth-child(2) {
+        height: 485px;;
+    }
+}
+
+@media (max-height: 725px) {
+    .container > section:first-child > div:nth-child(3) {
+        height: 118px;
+    }
+
+    .main-content > div:nth-child(2) {
+        height: 368px;;
+    }
+}
+
+/* Width */
+
+@media (max-width: 1800px) {
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 1700px) {
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1300px) {
+    .container {
+        grid-template-columns: none;
+        height: 100%;
+    }
+
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    body {
+        height: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    body {
+        height: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body {
+        height: 100%;
+    }
+
+    .dialog-box {
+        width: 400px;
+        height: 80%;
+    }
+
+    #icons_pickup {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .main-content > div:nth-child(2) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    body {
+        height: 100%;
+    }
+}
